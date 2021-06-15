@@ -16,7 +16,7 @@ protocol AuthServiceDelegate: AnyObject {
 
 class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
-    private let appID = "7880109"
+    private let appID = "7880590"
     private let vkSDK: VKSdk
     
     override init() {
