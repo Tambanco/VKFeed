@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		49A167C42678961C009656AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A167C22678961C009656AE /* Main.storyboard */; };
 		49A167C62678961D009656AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A167C52678961D009656AE /* Assets.xcassets */; };
 		49A167C92678961D009656AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A167C72678961D009656AE /* LaunchScreen.storyboard */; };
+		49A167D126789872009656AE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A167D026789872009656AE /* AuthService.swift */; };
 		B7050E16FDD7866C59C22345 /* Pods_VKFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC6729BFB7CED24FB11FFCD /* Pods_VKFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		49A167C52678961D009656AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49A167C82678961D009656AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49A167CA2678961D009656AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49A167D026789872009656AE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		52E5B665732C0B854881594A /* Pods-VKFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.release.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.release.xcconfig"; sourceTree = "<group>"; };
 		63E0992474B9208D1273C9CB /* Pods-VKFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.debug.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.debug.xcconfig"; sourceTree = "<group>"; };
 		8EC6729BFB7CED24FB11FFCD /* Pods_VKFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,7 +50,6 @@
 				63E0992474B9208D1273C9CB /* Pods-VKFeed.debug.xcconfig */,
 				52E5B665732C0B854881594A /* Pods-VKFeed.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -76,12 +77,21 @@
 				49A167BC2678961C009656AE /* AppDelegate.swift */,
 				49A167BE2678961C009656AE /* SceneDelegate.swift */,
 				49A167C02678961C009656AE /* ViewController.swift */,
+				49A167D226789878009656AE /* Services */,
 				49A167C22678961C009656AE /* Main.storyboard */,
 				49A167C52678961D009656AE /* Assets.xcassets */,
 				49A167C72678961D009656AE /* LaunchScreen.storyboard */,
 				49A167CA2678961D009656AE /* Info.plist */,
 			);
 			path = VKFeed;
+			sourceTree = "<group>";
+		};
+		49A167D226789878009656AE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				49A167D026789872009656AE /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D6F4EADFCB359202C949C24E /* Frameworks */ = {
@@ -209,6 +219,7 @@
 				49A167C12678961C009656AE /* ViewController.swift in Sources */,
 				49A167BD2678961C009656AE /* AppDelegate.swift in Sources */,
 				49A167BF2678961C009656AE /* SceneDelegate.swift in Sources */,
+				49A167D126789872009656AE /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
