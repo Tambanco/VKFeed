@@ -8,7 +8,7 @@
 import UIKit
 import VK_ios_sdk
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
 
     var window: UIWindow?
     var authService: AuthService!
@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         authService = AuthService()
+        authService.delegate = self
         let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateViewController(withIdentifier: "AuthViewController") as? AuthViewController
         window?.rootViewController = authVC
         window?.makeKeyAndVisible()
@@ -61,6 +62,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    // MARK: - AuthServiceDelegate
+    func authServiceShouldShow(viewController: UIViewController) {
+        print(#function)
+    }
+    
+    func authServiceSignIn() {
+        print(#function)
 
+    }
+    
+    func authServiceSignInDidFail() {
+        print(#function)
+
+    }
 }
 
