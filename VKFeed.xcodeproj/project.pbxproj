@@ -13,6 +13,7 @@
 		49A167C42678961C009656AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A167C22678961C009656AE /* Main.storyboard */; };
 		49A167C62678961D009656AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A167C52678961D009656AE /* Assets.xcassets */; };
 		49A167C92678961D009656AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A167C72678961D009656AE /* LaunchScreen.storyboard */; };
+		B7050E16FDD7866C59C22345 /* Pods_VKFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC6729BFB7CED24FB11FFCD /* Pods_VKFeed.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		49A167C52678961D009656AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49A167C82678961D009656AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49A167CA2678961D009656AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52E5B665732C0B854881594A /* Pods-VKFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.release.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.release.xcconfig"; sourceTree = "<group>"; };
+		63E0992474B9208D1273C9CB /* Pods-VKFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.debug.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.debug.xcconfig"; sourceTree = "<group>"; };
+		8EC6729BFB7CED24FB11FFCD /* Pods_VKFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7050E16FDD7866C59C22345 /* Pods_VKFeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		369A21235A7F6D76F9CE99BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63E0992474B9208D1273C9CB /* Pods-VKFeed.debug.xcconfig */,
+				52E5B665732C0B854881594A /* Pods-VKFeed.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		49A167B02678961C009656AE = {
 			isa = PBXGroup;
 			children = (
 				49A167BB2678961C009656AE /* VKFeed */,
 				49A167BA2678961C009656AE /* Products */,
+				369A21235A7F6D76F9CE99BA /* Pods */,
+				D6F4EADFCB359202C949C24E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +84,14 @@
 			path = VKFeed;
 			sourceTree = "<group>";
 		};
+		D6F4EADFCB359202C949C24E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EC6729BFB7CED24FB11FFCD /* Pods_VKFeed.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49A167CD2678961D009656AE /* Build configuration list for PBXNativeTarget "VKFeed" */;
 			buildPhases = (
+				F685F9ACAC2588570550166D /* [CP] Check Pods Manifest.lock */,
 				49A167B52678961C009656AE /* Sources */,
 				49A167B62678961C009656AE /* Frameworks */,
 				49A167B72678961C009656AE /* Resources */,
+				9F4FBACF8E548C0E5F79C212 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9F4FBACF8E548C0E5F79C212 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VKFeed/Pods-VKFeed-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VKFeed/Pods-VKFeed-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VKFeed/Pods-VKFeed-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F685F9ACAC2588570550166D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VKFeed-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49A167B52678961C009656AE /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		49A167CE2678961D009656AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63E0992474B9208D1273C9CB /* Pods-VKFeed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		49A167CF2678961D009656AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E5B665732C0B854881594A /* Pods-VKFeed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
