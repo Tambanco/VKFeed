@@ -21,6 +21,5 @@ class AuthViewController: UIViewController {
     @IBAction func sighnInTouch(_ sender: UIButton) {
         authService.wakeUpSession()
     }
-    
 }
 

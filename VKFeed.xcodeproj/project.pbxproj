@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		497431AB2678AD9700B26633 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497431AA2678AD9700B26633 /* FeedViewController.swift */; };
+		497431AD2678ADA600B26633 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497431AC2678ADA600B26633 /* FeedViewController.storyboard */; };
 		49A167BD2678961C009656AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A167BC2678961C009656AE /* AppDelegate.swift */; };
 		49A167BF2678961C009656AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A167BE2678961C009656AE /* SceneDelegate.swift */; };
 		49A167C12678961C009656AE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A167C02678961C009656AE /* AuthViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		497431AA2678AD9700B26633 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		497431AC2678ADA600B26633 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		49A167B92678961C009656AE /* VKFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A167BC2678961C009656AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49A167BE2678961C009656AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		497431AE2678AE2000B26633 /* FeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				497431AA2678AD9700B26633 /* FeedViewController.swift */,
+				497431AC2678ADA600B26633 /* FeedViewController.storyboard */,
+			);
+			path = FeedViewController;
+			sourceTree = "<group>";
+		};
+		497431AF2678AE2F00B26633 /* AuthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				49A167C02678961C009656AE /* AuthViewController.swift */,
+				49A167D32678A0A3009656AE /* AuthViewController.storyboard */,
+			);
+			path = AuthViewController;
+			sourceTree = "<group>";
+		};
 		49A167B02678961C009656AE = {
 			isa = PBXGroup;
 			children = (
@@ -76,8 +98,8 @@
 			children = (
 				49A167BC2678961C009656AE /* AppDelegate.swift */,
 				49A167BE2678961C009656AE /* SceneDelegate.swift */,
-				49A167C02678961C009656AE /* AuthViewController.swift */,
-				49A167D32678A0A3009656AE /* AuthViewController.storyboard */,
+				497431AF2678AE2F00B26633 /* AuthViewController */,
+				497431AE2678AE2000B26633 /* FeedViewController */,
 				49A167D226789878009656AE /* Services */,
 				49A167C52678961D009656AE /* Assets.xcassets */,
 				49A167C72678961D009656AE /* LaunchScreen.storyboard */,
@@ -164,6 +186,7 @@
 				49A167C92678961D009656AE /* LaunchScreen.storyboard in Resources */,
 				49A167D42678A0A3009656AE /* AuthViewController.storyboard in Resources */,
 				49A167C62678961D009656AE /* Assets.xcassets in Resources */,
+				497431AD2678ADA600B26633 /* FeedViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +241,7 @@
 			files = (
 				49A167C12678961C009656AE /* AuthViewController.swift in Sources */,
 				49A167BD2678961C009656AE /* AppDelegate.swift in Sources */,
+				497431AB2678AD9700B26633 /* FeedViewController.swift in Sources */,
 				49A167BF2678961C009656AE /* SceneDelegate.swift in Sources */,
 				49A167D126789872009656AE /* AuthService.swift in Sources */,
 			);
