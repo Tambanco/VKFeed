@@ -14,6 +14,8 @@ class AuthViewController: UIViewController {
         view.backgroundColor = .red
     }
 
-
+    @IBAction func sighnInTouch(_ sender: UIButton) {
+    }
+    
 }
 
