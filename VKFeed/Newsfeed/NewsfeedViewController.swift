@@ -52,11 +52,9 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
   func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData) {
     
     switch viewModel {
-    
-    case .some:
-        print(".some ViewController")
-    case .displayNewsFeed:
-        print(".displayNewsfeed ViewController")
+    case .displayNewsFeed(feedViewModel: let feedViewModel):
+        self.feedViewModel = feedViewModel
+        table.reloadData()
     }
   }
   
@@ -70,7 +68,7 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsfeedCell", for: indexPath) as! NewsfeedCell
-        cell.set(viewModel: feedViewModel.cells[indexPath.row])
+        let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
         return cell
     }

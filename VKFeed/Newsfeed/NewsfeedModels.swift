@@ -18,13 +18,12 @@ enum Newsfeed {
         }
         struct Response {
             enum ResponseType {
-                case presentNewsfeed
+                case presentNewsfeed(feed: FeedResponse)
             }
         }
         struct ViewModel {
             enum ViewModelData {
-                case some
-                case displayNewsFeed
+                case displayNewsFeed(feedViewModel: FeedViewModel)
             }
         }
     }
