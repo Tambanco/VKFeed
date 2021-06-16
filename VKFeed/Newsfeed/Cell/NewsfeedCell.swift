@@ -31,6 +31,7 @@ class NewsfeedCell: UITableViewCell {
     static let reuseId = "NewsfeedCell"
     
     // MARK: - Outlets
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var iconImageView: WebImageView!
     @IBOutlet weak var postImageView: WebImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -47,6 +48,11 @@ class NewsfeedCell: UITableViewCell {
         
         iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
         iconImageView.clipsToBounds = true
+        
+        cardView.layer.cornerRadius = 10
+        cardView.clipsToBounds = true
+        backgroundColor = .clear
+        selectionStyle = .none
     }
     
     func set(viewModel: FeedCellViewModel) {
