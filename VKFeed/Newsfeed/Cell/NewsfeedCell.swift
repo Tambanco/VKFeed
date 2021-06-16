@@ -56,6 +56,11 @@ class NewsfeedCell: UITableViewCell {
         sharesLabel.text = viewModel.shares
         viewsLabel.text = viewModel.views
         
-//        postImageView.set(imageURL: viewModel.)
+        if let photoAttachement = viewModel.photoAttachement {
+            
+            postImageView.set(imageURL: photoAttachement.photoUrlString)
+        } else {
+            
+        }
     }
 }
