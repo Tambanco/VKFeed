@@ -8,27 +8,17 @@
 
 import UIKit
 
-protocol NewsfeedDisplayLogic: class {
+protocol NewsfeedDisplayLogic: AnyObject {
   func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData)
 }
 
 class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
 
-  var interactor: NewsfeedBusinessLogic?
-  var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
-
-  // MARK: Object lifecycle
+    var interactor: NewsfeedBusinessLogic?
+    var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
+    @IBOutlet weak var table: UITableView!
+    
   // MARK: Setup
   
   private func setup() {
@@ -51,10 +41,27 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setup()
+    
+    table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
   }
   
   func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData) {
 
   }
   
+}
+
+extension NewsfeedViewController: UITabBarDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UITableViewCell
+        cell.textLabel?.text = "index: \(indexPath.row)"
+        return cell
+    }
+    
 }
