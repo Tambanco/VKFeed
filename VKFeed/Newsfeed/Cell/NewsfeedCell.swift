@@ -76,7 +76,7 @@ class NewsfeedCell: UITableViewCell {
         
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachementFrame
-        bottomView.frame = viewModel.sizes.bottomView
+//        bottomView.frame = viewModel.sizes.bottomView
         
         if let photoAttachement = viewModel.photoAttachement {
             postImageView.set(imageURL: photoAttachement.photoUrlString)

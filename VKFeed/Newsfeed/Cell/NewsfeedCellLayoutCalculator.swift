@@ -52,6 +52,8 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
             postLabelFrame.size = CGSize(width: width, height: height)
         }
         
+        // MARK: - AttachementFrame
+        
         return Sizes(postLabelFrame: CGRect.zero,
                      attachementFrame: CGRect.zero,
                      bottomView: CGRect.zero,
