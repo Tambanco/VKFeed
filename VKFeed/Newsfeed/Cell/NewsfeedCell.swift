@@ -44,6 +44,9 @@ class NewsfeedCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
+        iconImageView.clipsToBounds = true
     }
     
     func set(viewModel: FeedCellViewModel) {
@@ -57,10 +60,10 @@ class NewsfeedCell: UITableViewCell {
         viewsLabel.text = viewModel.views
         
         if let photoAttachement = viewModel.photoAttachement {
-            
             postImageView.set(imageURL: photoAttachement.photoUrlString)
+            postImageView.isHidden = false
         } else {
-            
+            postImageView.isHidden = true
         }
     }
 }
