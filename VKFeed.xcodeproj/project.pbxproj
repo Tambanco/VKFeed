@@ -20,6 +20,7 @@
 		4994EC64267A008F0076B4B2 /* NewsfeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994EC5D267A008F0076B4B2 /* NewsfeedViewController.swift */; };
 		4994EC65267A008F0076B4B2 /* NewsfeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994EC5E267A008F0076B4B2 /* NewsfeedInteractor.swift */; };
 		4994EC66267A008F0076B4B2 /* NewsfeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4994EC5F267A008F0076B4B2 /* NewsfeedViewController.xib */; };
+		4994EC68267A045F0076B4B2 /* NewsfeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4994EC67267A045F0076B4B2 /* NewsfeedViewController.storyboard */; };
 		49A167BD2678961C009656AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A167BC2678961C009656AE /* AppDelegate.swift */; };
 		49A167BF2678961C009656AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A167BE2678961C009656AE /* SceneDelegate.swift */; };
 		49A167C12678961C009656AE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A167C02678961C009656AE /* AuthViewController.swift */; };
@@ -44,6 +45,7 @@
 		4994EC5D267A008F0076B4B2 /* NewsfeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedViewController.swift; sourceTree = "<group>"; };
 		4994EC5E267A008F0076B4B2 /* NewsfeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedInteractor.swift; sourceTree = "<group>"; };
 		4994EC5F267A008F0076B4B2 /* NewsfeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsfeedViewController.xib; sourceTree = "<group>"; };
+		4994EC67267A045F0076B4B2 /* NewsfeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsfeedViewController.storyboard; sourceTree = "<group>"; };
 		49A167B92678961C009656AE /* VKFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A167BC2678961C009656AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49A167BE2678961C009656AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				4994EC5F267A008F0076B4B2 /* NewsfeedViewController.xib */,
 				4994EC5D267A008F0076B4B2 /* NewsfeedViewController.swift */,
 				4994EC5E267A008F0076B4B2 /* NewsfeedInteractor.swift */,
+				4994EC67267A045F0076B4B2 /* NewsfeedViewController.storyboard */,
 				4994EC59267A008F0076B4B2 /* NewsfeedPresenter.swift */,
 				4994EC5C267A008F0076B4B2 /* NewsfeedModels.swift */,
 				4994EC5A267A008F0076B4B2 /* NewsfeedWorker.swift */,
@@ -234,6 +237,7 @@
 			files = (
 				49A167C92678961D009656AE /* LaunchScreen.storyboard in Resources */,
 				49A167D42678A0A3009656AE /* AuthViewController.storyboard in Resources */,
+				4994EC68267A045F0076B4B2 /* NewsfeedViewController.storyboard in Resources */,
 				4994EC66267A008F0076B4B2 /* NewsfeedViewController.xib in Resources */,
 				49A167C62678961D009656AE /* Assets.xcassets in Resources */,
 				497431AD2678ADA600B26633 /* FeedViewController.storyboard in Resources */,
