@@ -32,6 +32,7 @@ class NewsfeedCell: UITableViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var iconImageView: WebImageView!
+    @IBOutlet weak var postImageView: WebImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var postLabel: UILabel!
@@ -54,5 +55,7 @@ class NewsfeedCell: UITableViewCell {
         commentsLabel.text = viewModel.comments
         sharesLabel.text = viewModel.shares
         viewsLabel.text = viewModel.views
+        
+//        postImageView.set(imageURL: viewModel.)
     }
 }
