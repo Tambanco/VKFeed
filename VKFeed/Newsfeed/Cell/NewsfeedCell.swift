@@ -17,10 +17,10 @@ protocol FeedCellViewModel {
     var comments: String? { get }
     var shares: String? { get }
     var views: String? { get }
-    var photoAttachement: FeedCellPhotoAttachmentViewModel? { get }
+    var photoAttachement: FeedCellPhotoAttachementViewModel? { get }
 }
 
-protocol FeedCellPhotoAttachmentViewModel {
+protocol FeedCellPhotoAttachementViewModel {
     var photoUrlString: String? { get }
     var width: Int { get }
     var height: Int { get }
