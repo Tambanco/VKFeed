@@ -10,6 +10,8 @@ import UIKit
 
 class NewsfeedCell: UITableViewCell {
     
+    static let reuseId = "NewsfeedCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
