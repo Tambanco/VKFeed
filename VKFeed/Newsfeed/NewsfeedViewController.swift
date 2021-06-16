@@ -16,6 +16,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
 
     var interactor: NewsfeedBusinessLogic?
     var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
+    private var feedViewModel = FeedViewModel.init(cells: [])
   
     @IBOutlet weak var table: UITableView!
     
@@ -45,6 +46,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     setup()
     
     table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
+    interactor?.makeRequest(request: Newsfeed.Model.Request.RequestType.getNewsFeed)
   }
   
   func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData) {
@@ -63,21 +65,19 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
 extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return feedViewModel.cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsfeedCell", for: indexPath) as! NewsfeedCell
-    
+        cell.set(viewModel: feedViewModel.cells[indexPath.row])
+        cell.set(viewModel: cellViewModel)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("select row")
-        interactor?.makeRequest(request: .some)
-    }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return 200
     }
 }
