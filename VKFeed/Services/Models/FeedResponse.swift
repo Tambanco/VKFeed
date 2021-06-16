@@ -36,11 +36,10 @@ struct Attechment: Decodable {
 struct Photo: Decodable {
 //    let id: Int
     let sizes: [PhotoSize]
-    
     var height: Int {
         return getProperSize().height
     }
-    
+
     var width: Int {
         return getProperSize().width
     }
