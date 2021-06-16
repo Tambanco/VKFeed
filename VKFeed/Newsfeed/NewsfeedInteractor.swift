@@ -27,14 +27,8 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
         switch request {
         case .getNewsFeed:
             fetcher.getFeed { [weak self] (feedResponse) in
-                
-                feedResponse?.items.map({ (feedItem) in
-                    print(feedItem.attachments)
-                })
-                
                 guard let feedResponse = feedResponse else { return }
                 self?.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feedResponse))
-                
             }
         }
     }

@@ -15,6 +15,10 @@ protocol NewsfeedPresentationLogic {
 class NewsfeedPresenter: NewsfeedPresentationLogic {
     
     weak var viewController: NewsfeedDisplayLogic?
+    let ff = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
+    var cellLayaoutCalculator: FeedCellLayoutCalculatorProtocol = FeedCellLayoutCalculator()
+    
+    
     let dateFormatter: DateFormatter = {
         let dt = DateFormatter()
         dt.locale = Locale(identifier: "ru_RU")
@@ -46,6 +50,8 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitle = dateFormatter.string(from: date)
         
+        let sizes = cellLayaoutCalculator.sizes(postText: feedItem.text, photoAttachement: photoAttachement)
+        
         return FeedViewModel.Cell.init(iconURLString: profile.photo,
                                        name: profile.name,
                                        date: dateTitle,
@@ -54,7 +60,8 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
                                        comments: String(feedItem.comments?.count ?? 0),
                                        shares: String(feedItem.reposts?.count ?? 0),
                                        views: String(feedItem.views?.count ?? 0),
-                                       photoAttachement: photoAttachement)
+                                       photoAttachement: photoAttachement,
+                                       sizes: sizes)
     }
     
     
