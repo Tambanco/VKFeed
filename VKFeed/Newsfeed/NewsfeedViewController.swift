@@ -48,12 +48,20 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
   }
   
   func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData) {
-
+    
+    switch viewModel {
+    
+    case .some:
+        print(".some ViewController")
+    case .displayNewsFeed:
+        print(".displayNewsfeed ViewController")
+    }
   }
   
 }
 
-extension NewsfeedViewController: UITabBarDelegate, UITableViewDataSource {
+extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -64,4 +72,8 @@ extension NewsfeedViewController: UITabBarDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("select row")
+        interactor?.makeRequest(request: .some)
+    }
 }
