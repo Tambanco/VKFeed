@@ -62,7 +62,6 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
             let photoHeight: Float = Float(attachement.height)
             let photoWidth: Float = Float(attachement.width)
             let ratio = CGFloat(photoHeight / photoWidth)
-            print(ratio)
             attachementFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ratio)
         }
         
