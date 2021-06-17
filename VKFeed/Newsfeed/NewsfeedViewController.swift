@@ -50,7 +50,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     
     
 //    table.separatorStyle = .none
-    table.backgroundColor = .clear
+    table.backgroundColor = .white
     view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
     
     interactor?.makeRequest(request: Newsfeed.Model.Request.RequestType.getNewsFeed)

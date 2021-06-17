@@ -15,7 +15,7 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         
         authService = SceneDelegate.shared().authService
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray
     }
 
     @IBAction func sighnInTouch(_ sender: UIButton) {

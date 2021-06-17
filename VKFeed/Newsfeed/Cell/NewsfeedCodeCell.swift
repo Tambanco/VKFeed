@@ -15,8 +15,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     // first layer
     let cardView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        
+//        view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         return view
     }()
     
@@ -24,7 +23,6 @@ final class NewsfeedCodeCell: UITableViewCell {
     let topView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         return view
     }()
     
@@ -32,20 +30,17 @@ final class NewsfeedCodeCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = Constants.postLabelFont
-        label.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         label.textColor = #colorLiteral(red: 0.1725490196, green: 0.1764705882, blue: 0.1803921569, alpha: 1)
         return label
     }()
     
     let postImageView: WebImageView = {
         let imageView = WebImageView()
-        imageView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         return imageView
     }()
     
     let bottomView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         return view
     }()
     
@@ -61,7 +56,6 @@ final class NewsfeedCodeCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 0
-        label.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         label.textColor = #colorLiteral(red: 0.1725490196, green: 0.1764705882, blue: 0.1803921569, alpha: 1)
         return label
     }()
@@ -69,7 +63,6 @@ final class NewsfeedCodeCell: UITableViewCell {
     let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         label.textColor = #colorLiteral(red: 0.5058823529, green: 0.5490196078, blue: 0.6, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 12)
         return label
@@ -78,28 +71,24 @@ final class NewsfeedCodeCell: UITableViewCell {
     // third layer on bottomView
     let likesView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let commentsView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let sharesView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let viewsView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -136,6 +125,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     let likesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "45K"
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.lineBreakMode = .byClipping
         label.textColor = #colorLiteral(red: 0.5058823529, green: 0.5490196078, blue: 0.6, alpha: 1)
@@ -171,7 +161,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         
         overlayFirstLayer()
         overlaySecondLayer()
@@ -185,6 +175,10 @@ final class NewsfeedCodeCell: UITableViewCell {
         nameLabel.text = viewModel.name
         dateLabel.text = viewModel.date
         postLabel.text = viewModel.text
+        likesLabel.text = viewModel.likes
+        commentsLabel.text = viewModel.comments
+        sharesLabel.text = viewModel.shares
+        viewsLabel.text = viewModel.views
         
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachementFrame
@@ -212,6 +206,9 @@ final class NewsfeedCodeCell: UITableViewCell {
         viewsView.addSubview(viewsLabel)
         
         helpInFourLayer(view: likesView, imageView: likesImage, label: likesLabel)
+        helpInFourLayer(view: commentsView, imageView: commentsImage, label: commentsLabel)
+        helpInFourLayer(view: sharesView, imageView: sharesImage, label: sharesLabel)
+        helpInFourLayer(view: viewsView, imageView: viewsImage, label: viewsLabel)
     }
     
     private func helpInFourLayer(view: UIView, imageView: UIImageView, label: UILabel) {
@@ -294,7 +291,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         // topView constraints
         topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
-        topView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8).isActive = true
+//        topView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 8).isActive = true
         topView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 8).isActive = true
         topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
     }

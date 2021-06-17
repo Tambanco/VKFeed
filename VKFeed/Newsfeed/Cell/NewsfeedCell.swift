@@ -64,7 +64,7 @@ class NewsfeedCell: UITableViewCell {
         
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
-        backgroundColor = .clear
+        backgroundColor = .white
         selectionStyle = .none
     }
     
