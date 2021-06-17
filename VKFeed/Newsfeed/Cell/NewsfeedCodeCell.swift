@@ -97,12 +97,43 @@ final class NewsfeedCodeCell: UITableViewCell {
         return view
     }()
     
-    let viewsView: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    // fourth layer on bottomView
+    let likesImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "like")
+        return imageView
     }()
+    
+    let commentsImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "comment")
+        return imageView
+    }()
+    
+    let sharesImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "share")
+        return imageView
+    }()
+    
+    let viewsImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "eye")
+        return imageView
+    }()
+    
+    let likesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }()
+    
+  
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
