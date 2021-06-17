@@ -46,8 +46,10 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     setup()
     
     table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
+    table.register(NewsfeedCodeCell.self, forCellReuseIdentifier: NewsfeedCodeCell.reuseId)
     
-    table.separatorStyle = .none
+    
+//    table.separatorStyle = .none
     table.backgroundColor = .clear
     view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
     
@@ -72,14 +74,17 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsfeedCell", for: indexPath) as! NewsfeedCell
-        let cellViewModel = feedViewModel.cells[indexPath.row]
-        cell.set(viewModel: cellViewModel)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsfeedCell", for: indexPath) as! NewsfeedCell
+//        let cellViewModel = feedViewModel.cells[indexPath.row]
+//        cell.set(viewModel: cellViewModel)
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCodeCell.reuseId, for: indexPath) as! NewsfeedCodeCell
+        cell.textLabel?.text = "index: \(indexPath.row)"
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellViewModel = feedViewModel.cells[indexPath.row]
-        return cellViewModel.sizes.totalHeight
+//        return cellViewModel.sizes.totalHeight
+        return 200
     }
 }
