@@ -8,9 +8,15 @@
 import Foundation
 import UIKit
 
+protocol NewsfeedCodeCellDelegate: AnyObject {
+    func revealPost(for cell: NewsfeedCodeCell)
+}
+
 final class NewsfeedCodeCell: UITableViewCell {
     
     static let reuseId = "NewsfeedCodeCell"
+    
+    weak var delegate: NewsfeedCodeCellDelegate?
     
     // first layer
     let cardView: UIView = {
@@ -188,11 +194,17 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         
+        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+        
         overlayFirstLayer()
         overlaySecondLayer()
         overlayThirdLayerOnTopView()
         overlayThirdLayerOnBottomView()
         overlayFourthLayerOnBottomViewViews()
+    }
+    
+    @objc func moreTextButtonTouch() {
+        delegate?.revealPost(for: self)
     }
     
     func set(viewModel: FeedCellViewModel) {
@@ -208,6 +220,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachementFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
+        moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
         if let photoAttachement = viewModel.photoAttachement {
             postImageView.set(imageURL: photoAttachement.photoUrlString)
@@ -311,6 +324,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     private func overlaySecondLayer() {
         cardView.addSubview(topView)
         cardView.addSubview(postLabel)
+        cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
         

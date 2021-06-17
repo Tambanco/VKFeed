@@ -12,8 +12,8 @@ protocol NewsfeedDisplayLogic: AnyObject {
   func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData)
 }
 
-class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
-
+class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCodeCellDelegate {
+    
     var interactor: NewsfeedBusinessLogic?
     var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
     private var feedViewModel = FeedViewModel.init(cells: [])
@@ -48,6 +48,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
     table.register(NewsfeedCodeCell.self, forCellReuseIdentifier: NewsfeedCodeCell.reuseId)
     
+   
     
     table.separatorStyle = .none
     table.backgroundColor = .clear
@@ -64,6 +65,11 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
         table.reloadData()
     }
   }
+    
+    // MARK: - NewsfeedCodeCellDelegate
+    func revealPost(for cell: NewsfeedCodeCell) {
+        print("56")
+    }
   
 }
 
@@ -78,6 +84,7 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCodeCell.reuseId, for: indexPath) as! NewsfeedCodeCell
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
+        cell.delegate = self
         
         return cell
     }
