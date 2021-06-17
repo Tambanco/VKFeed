@@ -11,6 +11,7 @@ import UIKit
 final class NewsfeedCodeCell: UITableViewCell {
     
     static let reuseId = "NewsfeedCodeCell"
+    
     let cardView: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
@@ -18,14 +19,17 @@ final class NewsfeedCodeCell: UITableViewCell {
         return view
     }()
     
-    
+    let topView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        addSubview(cardView)
         backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
+        overlayFirstLayer()
         // MARK: - cardView constraints
         cardView.anchor(top: topAnchor,
                         leading: leadingAnchor,
@@ -33,6 +37,13 @@ final class NewsfeedCodeCell: UITableViewCell {
                         trailing: nil,
                         padding: UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 0),
                         size: CGSize(width: 40, height: 40))
+    }
+    
+    func overlayFirstLayer() {
+        addSubview(cardView)
+        
+        // cardView constraints
+        cardView.fillSuperview(padding: Constants.cardInsets)
     }
     
     required init?(coder: NSCoder) {
