@@ -24,7 +24,7 @@ protocol FeedCellViewModel {
 protocol FeedCellSizes {
     var postLabelFrame: CGRect { get }
     var attachementFrame: CGRect { get }
-    var bottomView: CGRect { get }
+    var bottomViewFrame: CGRect { get }
     var totalHeight: CGFloat { get }
 }
 
@@ -80,7 +80,7 @@ class NewsfeedCell: UITableViewCell {
         
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachementFrame
-//        bottomView.frame = viewModel.sizes.bottomView
+        bottomView.frame = viewModel.sizes.bottomViewFrame
         
         if let photoAttachement = viewModel.photoAttachement {
             postImageView.set(imageURL: photoAttachement.photoUrlString)

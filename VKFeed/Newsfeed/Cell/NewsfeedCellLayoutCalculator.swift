@@ -15,7 +15,7 @@ protocol FeedCellLayoutCalculatorProtocol {
 struct Sizes: FeedCellSizes {
     var postLabelFrame: CGRect
     var attachementFrame: CGRect
-    var bottomView: CGRect
+    var bottomViewFrame: CGRect
     var totalHeight: CGFloat
 }
 
@@ -24,6 +24,7 @@ struct Constants {
     static let topViewHeight: CGFloat = 36
     static let postLabelInsets = UIEdgeInsets(top: 8 + Constants.topViewHeight + 8, left: 8, bottom: 8, right: 8)
     static let postLabelFont = UIFont.systemFont(ofSize: 15)
+    static let bottomViewHeight: CGFloat = 50
 }
 
 final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
@@ -40,8 +41,7 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         
         let cardViewWidth = screenWidth - Constants.cardInsets.left - Constants.cardInsets.right
         
-        // MARK: - PostLabelFrame
-        
+        // MARK: - postLabelFrame
         var postLabelFrame = CGRect(origin: CGPoint(x: Constants.postLabelInsets.left, y: Constants.postLabelInsets.top),
                                     size: CGSize.zero)
         
@@ -52,8 +52,7 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
             postLabelFrame.size = CGSize(width: width, height: height)
         }
         
-        // MARK: - AttachementFrame
-        
+        // MARK: - attachementFrame
         let attachementTop = postLabelFrame.size == CGSize.zero ? Constants.postLabelInsets.top : postLabelFrame.maxY + Constants.postLabelInsets.bottom
         
         var attachementFrame = CGRect(origin: CGPoint(x: 0, y: attachementTop), size: CGSize.zero)
@@ -65,9 +64,16 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
             attachementFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ratio)
         }
         
+        // MARK: - bottomViewFrame
+        let bottomViewTop = max(postLabelFrame.maxY, attachementFrame.maxY)
+        let bottomViewFrame = CGRect(origin: CGPoint(x: 0, y: bottomViewTop), size: CGSize(width: cardViewWidth, height: Constants.bottomViewHeight))
+        
+        // MARK: - totalHeight
+        let totalHeight = bottomViewFrame.maxY + Constants.cardInsets.bottom
+        
         return Sizes(postLabelFrame: postLabelFrame,
                      attachementFrame: attachementFrame,
-                     bottomView: CGRect.zero,
-                     totalHeight: 600)
+                     bottomViewFrame: bottomViewFrame,
+                     totalHeight: totalHeight)
     }
 }
