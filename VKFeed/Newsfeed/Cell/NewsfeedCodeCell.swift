@@ -97,6 +97,13 @@ final class NewsfeedCodeCell: UITableViewCell {
         return view
     }()
     
+    let viewsView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     // fourth layer on bottomView
     let likesImage: UIImageView = {
         let imageView = UIImageView()
@@ -129,11 +136,38 @@ final class NewsfeedCodeCell: UITableViewCell {
     let likesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.lineBreakMode = .byClipping
+        label.textColor = #colorLiteral(red: 0.5058823529, green: 0.5490196078, blue: 0.6, alpha: 1)
+        return label
     }()
     
-  
+    let commentsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.lineBreakMode = .byClipping
+        label.textColor = #colorLiteral(red: 0.5058823529, green: 0.5490196078, blue: 0.6, alpha: 1)
+        return label
+    }()
     
+    let sharesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.lineBreakMode = .byClipping
+        label.textColor = #colorLiteral(red: 0.5058823529, green: 0.5490196078, blue: 0.6, alpha: 1)
+        return label
+    }()
+    
+    let viewsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.lineBreakMode = .byClipping
+        label.textColor = #colorLiteral(red: 0.5058823529, green: 0.5490196078, blue: 0.6, alpha: 1)
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -143,6 +177,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         overlaySecondLayer()
         overlayThirdLayerOnTopView()
         overlayThirdLayerOnBottomView()
+        overlayFourthLayerOnBottomViewViews()
     }
     
     func set(viewModel: FeedCellViewModel) {
@@ -163,6 +198,35 @@ final class NewsfeedCodeCell: UITableViewCell {
         }
     }
     
+    private func overlayFourthLayerOnBottomViewViews() {
+        likesView.addSubview(likesImage)
+        likesView.addSubview(likesLabel)
+        
+        commentsView.addSubview(commentsImage)
+        commentsView.addSubview(commentsLabel)
+        
+        sharesView.addSubview(sharesImage)
+        sharesView.addSubview(sharesLabel)
+        
+        viewsView.addSubview(viewsImage)
+        viewsView.addSubview(viewsLabel)
+        
+        helpInFourLayer(view: likesView, imageView: likesImage, label: likesLabel)
+    }
+    
+    private func helpInFourLayer(view: UIView, imageView: UIImageView, label: UILabel) {
+        // imageView constraints
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewsIconSize).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: Constants.bottomViewViewsIconSize).isActive = true
+        
+        // label constraints
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 4).isActive = true
+        label.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
     private func overlayThirdLayerOnBottomView() {
         bottomView.addSubview(likesView)
         bottomView.addSubview(commentsView)
@@ -178,17 +242,17 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         // commentsView constraints
         commentsView.anchor(top: bottomView.topAnchor,
-                         leading: likesView.trailingAnchor,
-                         bottom: nil,
-                         trailing: nil,
-                         size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
+                            leading: likesView.trailingAnchor,
+                            bottom: nil,
+                            trailing: nil,
+                            size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
         
         // commentsView constraints
         sharesView.anchor(top: bottomView.topAnchor,
-                         leading: commentsView.trailingAnchor,
-                         bottom: nil,
-                         trailing: nil,
-                         size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
+                          leading: commentsView.trailingAnchor,
+                          bottom: nil,
+                          trailing: nil,
+                          size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
         
         // viewsView constraints
         viewsView.anchor(top: bottomView.topAnchor,
