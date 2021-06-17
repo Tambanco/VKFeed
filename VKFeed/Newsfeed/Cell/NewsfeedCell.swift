@@ -62,8 +62,8 @@ class NewsfeedCell: UITableViewCell {
         iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
         iconImageView.clipsToBounds = true
         
-        cardView.layer.cornerRadius = 10
-        cardView.clipsToBounds = true
+//        cardView.layer.cornerRadius = 10
+//        cardView.clipsToBounds = true
         backgroundColor = .white
         selectionStyle = .none
     }

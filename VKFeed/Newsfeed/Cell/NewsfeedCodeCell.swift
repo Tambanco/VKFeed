@@ -15,7 +15,8 @@ final class NewsfeedCodeCell: UITableViewCell {
     // first layer
     let cardView: UIView = {
         let view = UIView()
-//        view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -161,7 +162,11 @@ final class NewsfeedCodeCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        backgroundColor = .clear
+        selectionStyle = .none
+        
+        cardView.layer.cornerRadius = 10
+//        cardView.clipsToBounds = true
         
         overlayFirstLayer()
         overlaySecondLayer()
