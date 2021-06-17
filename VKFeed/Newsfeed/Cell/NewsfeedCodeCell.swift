@@ -48,7 +48,6 @@ final class NewsfeedCodeCell: UITableViewCell {
         button.contentHorizontalAlignment = .left
         button.contentVerticalAlignment = .center
         button.setTitle("Показать полностью...", for: .normal)
-        
         return button
     }()
     
@@ -204,7 +203,9 @@ final class NewsfeedCodeCell: UITableViewCell {
     }
     
     @objc func moreTextButtonTouch() {
+        print("ff")
         delegate?.revealPost(for: self)
+        
     }
     
     func set(viewModel: FeedCellViewModel) {
