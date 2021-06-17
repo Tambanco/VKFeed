@@ -48,6 +48,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         button.contentHorizontalAlignment = .left
         button.contentVerticalAlignment = .center
         button.setTitle("Показать полностью...", for: .normal)
+        button.isUserInteractionEnabled = true
         return button
     }()
     
@@ -184,8 +185,10 @@ final class NewsfeedCodeCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         backgroundColor = .clear
         selectionStyle = .none
+        isUserInteractionEnabled = true
         
         iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
         iconImageView.clipsToBounds = true
@@ -204,8 +207,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     
     @objc func moreTextButtonTouch() {
         print("ff")
-        delegate?.revealPost(for: self)
-        
+//        delegate?.revealPost(for: self)
     }
     
     func set(viewModel: FeedCellViewModel) {

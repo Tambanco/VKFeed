@@ -32,8 +32,6 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         
         case .presentNewsfeed(let feed, let revealedPostIds):
             
-            print(revealedPostIds)
-            
             let cells = feed.items.map { (feedItem) in
                 cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups, revealedPostIds: revealedPostIds)
             }

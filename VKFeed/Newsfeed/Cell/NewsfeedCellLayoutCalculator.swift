@@ -14,8 +14,8 @@ protocol FeedCellLayoutCalculatorProtocol {
 
 struct Sizes: FeedCellSizes {
     var postLabelFrame: CGRect
-    var attachementFrame: CGRect
     var moreTextButtonFrame: CGRect
+    var attachementFrame: CGRect
     var bottomViewFrame: CGRect
     var totalHeight: CGFloat
 }
@@ -45,8 +45,9 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
             var height = text.height(width: width, font: Constants.postLabelFont)
             
             let limitHeight = Constants.postLabelFont.lineHeight * Constants.minifiedPostLimitLines
+            
             if !isFullSizedPost && height > limitHeight {
-                height = Constants.postLabelFont.lineHeight * Constants.minifiedPostLimitLines
+                height = Constants.postLabelFont.lineHeight * Constants.minifiedPostLines
                 showMoreTextButton = true
             }
             
@@ -54,14 +55,14 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         }
         
         // MARK: - moreTextButtonFrame
-        
         var moreTextButtonSize = CGSize.zero
+        
         if showMoreTextButton {
             moreTextButtonSize = Constants.moreTextButtonSize
         }
         
-        let moreTextButtonOrigin = CGPoint(x: Constants.moreTextButtonInsets.left,
-                                           y: postLabelFrame.maxY)
+        let moreTextButtonOrigin = CGPoint(x: Constants.moreTextButtonInsets.left, y: postLabelFrame.maxY)
+        
         let moreTextButtonFrame = CGRect(origin: moreTextButtonOrigin, size: moreTextButtonSize)
         
         
@@ -85,8 +86,8 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         let totalHeight = bottomViewFrame.maxY + Constants.cardInsets.bottom
         
         return Sizes(postLabelFrame: postLabelFrame,
-                     attachementFrame: attachementFrame,
                      moreTextButtonFrame: moreTextButtonFrame,
+                     attachementFrame: attachementFrame,
                      bottomViewFrame: bottomViewFrame,
                      totalHeight: totalHeight)
     }

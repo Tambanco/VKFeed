@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D133352A-C3EE-4C83-A80C-0482A00AA604"
+            uuid = "9AB4C0F9-563A-4D41-913E-6AEF17AD3E99"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VKFeed/Newsfeed/NewsfeedViewController.swift"
+            filePath = "VKFeed/Newsfeed/Cell/NewsfeedCodeCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "revealPost(for:)"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "moreTextButtonTouch()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
