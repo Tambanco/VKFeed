@@ -18,7 +18,6 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
     let ff = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
     var cellLayaoutCalculator: FeedCellLayoutCalculatorProtocol = FeedCellLayoutCalculator()
     
-    
     let dateFormatter: DateFormatter = {
         let dt = DateFormatter()
         dt.locale = Locale(identifier: "ru_RU")
@@ -29,7 +28,6 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
     func presentData(response: Newsfeed.Model.Response.ResponseType) {
         
         switch response {
-        
         case .presentNewsfeed(let feed, let revealedPostIds):
             
             let cells = feed.items.map { (feedItem) in
@@ -69,7 +67,6 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
                                        photoAttachement: photoAttachement,
                                        sizes: sizes)
     }
-    
     
     private func profile(for sourceId: Int, profiles: [Profile], groups: [Group]) -> ProfileRepresentable {
         let profilesOrGroups: [ProfileRepresentable] = sourceId >= 0 ? profiles : groups

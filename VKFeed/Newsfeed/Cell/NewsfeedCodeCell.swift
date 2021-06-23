@@ -48,7 +48,6 @@ final class NewsfeedCodeCell: UITableViewCell {
         button.contentHorizontalAlignment = .left
         button.contentVerticalAlignment = .center
         button.setTitle("Показать полностью...", for: .normal)
-        button.isUserInteractionEnabled = true
         return button
     }()
     
@@ -188,13 +187,14 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         backgroundColor = .clear
         selectionStyle = .none
-        isUserInteractionEnabled = true
         
         iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
         iconImageView.clipsToBounds = true
         
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
+        
+        contentView.isUserInteractionEnabled = false
         
         moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
         
@@ -206,9 +206,11 @@ final class NewsfeedCodeCell: UITableViewCell {
     }
     
     @objc func moreTextButtonTouch() {
-        print("ff")
-//        delegate?.revealPost(for: self)
+        print("123")
     }
+//    @objc func moreTextButtonTouch() {
+//        delegate?.revealPost(for: self)
+//    }
     
     func set(viewModel: FeedCellViewModel) {
         iconImageView.set(imageURL: viewModel.iconURLString)
@@ -333,7 +335,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         // topView constraints
         topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
-//        topView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 8).isActive = true
+        topView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 8).isActive = true
         topView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 8).isActive = true
         topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
     }

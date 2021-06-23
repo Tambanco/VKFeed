@@ -48,8 +48,6 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
 //    table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
     table.register(NewsfeedCodeCell.self, forCellReuseIdentifier: NewsfeedCodeCell.reuseId)
     
-   
-    
     table.separatorStyle = .none
     table.backgroundColor = .clear
     view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
@@ -73,7 +71,6 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
         
         interactor?.makeRequest(request: Newsfeed.Model.Request.RequestType.revealPostIds(postId: cellViewModel.postId))
     }
-  
 }
 
 extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
