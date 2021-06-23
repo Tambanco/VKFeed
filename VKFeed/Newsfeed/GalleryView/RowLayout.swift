@@ -16,12 +16,13 @@ class RowLayout: UICollectionViewLayout {
     
     weak var delegate: RowLayoutDelegate!
     
-    fileprivate var numberOfRows = 1
+    fileprivate var numberOfRows = 2
     fileprivate var cellPadding: CGFloat = 8
     
     fileprivate var cache = [UICollectionViewLayoutAttributes]()
     fileprivate var contentWidth: CGFloat = 0
     fileprivate var contentHeight: CGFloat {
+        
         guard let collectionView = collectionView else { return 0 }
         
         let insets = collectionView.contentInset
@@ -32,6 +33,8 @@ class RowLayout: UICollectionViewLayout {
     }
     
     override func prepare() {
+        contentWidth = 0
+        cache = []
         guard cache.isEmpty == true, let collectionView = collectionView else { return }
         
         var photos = [CGSize]()
@@ -43,7 +46,7 @@ class RowLayout: UICollectionViewLayout {
         
         let superViewWidth = collectionView.frame.width
         
-        guard let rowHeight = self.rowHeightCounter(superViewWidth: superViewWidth, photosArray: photos) else { return }
+        guard let rowHeight = RowLayout.rowHeightCounter(superViewWidth: superViewWidth, photosArray: photos) else { return }
         
         let photosRatios = photos.map { $0.height / $0.width }
         
@@ -73,7 +76,7 @@ class RowLayout: UICollectionViewLayout {
         }
     }
     
-    private func rowHeightCounter(superViewWidth: CGFloat, photosArray: [CGSize]) -> CGFloat? {
+    static func rowHeightCounter(superViewWidth: CGFloat, photosArray: [CGSize]) -> CGFloat? {
         var rowHeight: CGFloat
         
         let photoWithMinRatio = photosArray.min { (first, second) -> Bool in

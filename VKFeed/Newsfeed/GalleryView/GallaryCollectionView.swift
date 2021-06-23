@@ -23,10 +23,15 @@ class GallaryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         
         register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseId)
+        
+        if let rowLayout = collectionViewLayout as? RowLayout {
+            rowLayout.delegate = self
+        }
     }
     
     func set(photos: [FeedCellPhotoAttachementViewModel]) {
         self.photos = photos
+        contentOffset = CGPoint.zero
         reloadData()
     }
     
