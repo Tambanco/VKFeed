@@ -13,6 +13,7 @@
 		498651E82683785800F87203 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498651E72683785800F87203 /* GalleryCollectionViewCell.swift */; };
 		498651EA268384BD00F87203 /* RowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498651E9268384BD00F87203 /* RowLayout.swift */; };
 		498651ED2683D3A200F87203 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498651EC2683D3A200F87203 /* TitleView.swift */; };
+		498651EF2683D69800F87203 /* InsetableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498651EE2683D69800F87203 /* InsetableTextField.swift */; };
 		4988EBA42679E88D00BA3835 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4988EBA32679E88D00BA3835 /* FeedResponse.swift */; };
 		4988EBA62679EC4600BA3835 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4988EBA52679EC4600BA3835 /* NetworkDataFetcher.swift */; };
 		4994EC60267A008F0076B4B2 /* NewsfeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994EC59267A008F0076B4B2 /* NewsfeedPresenter.swift */; };
@@ -47,6 +48,7 @@
 		498651E72683785800F87203 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		498651E9268384BD00F87203 /* RowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowLayout.swift; sourceTree = "<group>"; };
 		498651EC2683D3A200F87203 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		498651EE2683D69800F87203 /* InsetableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetableTextField.swift; sourceTree = "<group>"; };
 		4988EBA32679E88D00BA3835 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 		4988EBA52679EC4600BA3835 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		4994EC59267A008F0076B4B2 /* NewsfeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedPresenter.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				498651EC2683D3A200F87203 /* TitleView.swift */,
+				498651EE2683D69800F87203 /* InsetableTextField.swift */,
 			);
 			path = TitleView;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				4994EC76267A8C3D0076B4B2 /* String+Height.swift in Sources */,
 				4994EC6B267A0C1D0076B4B2 /* NewsfeedCell.swift in Sources */,
 				4994EC65267A008F0076B4B2 /* NewsfeedInteractor.swift in Sources */,
+				498651EF2683D69800F87203 /* InsetableTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
