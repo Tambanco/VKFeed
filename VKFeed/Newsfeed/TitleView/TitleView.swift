@@ -27,6 +27,8 @@ class TitleView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(myTextField)
         addSubview(myAvatarView)
+        
+        makeConstraints()
     }
     
     private func makeConstraints() {
@@ -56,11 +58,10 @@ class TitleView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         myAvatarView.layer.masksToBounds = true
-        myAvatarView.layer.cornerRadius = myAvatarView.frame.width / 2
+        myAvatarView.layer.cornerRadius = myAvatarView.frame.height / 2
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
