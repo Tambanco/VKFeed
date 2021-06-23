@@ -21,7 +21,6 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
     @IBOutlet weak var table: UITableView!
     
   // MARK: Setup
-  
   private func setup() {
     let viewController        = self
     let interactor            = NewsfeedInteractor()
@@ -39,7 +38,6 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
 
   
   // MARK: View lifecycle
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     

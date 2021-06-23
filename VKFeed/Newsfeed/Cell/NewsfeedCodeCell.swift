@@ -206,11 +206,8 @@ final class NewsfeedCodeCell: UITableViewCell {
     }
     
     @objc func moreTextButtonTouch() {
-        print("123")
+        delegate?.revealPost(for: self)
     }
-//    @objc func moreTextButtonTouch() {
-//        delegate?.revealPost(for: self)
-//    }
     
     func set(viewModel: FeedCellViewModel) {
         iconImageView.set(imageURL: viewModel.iconURLString)
@@ -227,7 +224,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         bottomView.frame = viewModel.sizes.bottomViewFrame
         moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
-        if let photoAttachement = viewModel.photoAttachement {
+        if let photoAttachement = viewModel.photoAttachements.first, viewModel.photoAttachements.count == 1 {
             postImageView.set(imageURL: photoAttachement.photoUrlString)
             postImageView.isHidden = false
         } else {
