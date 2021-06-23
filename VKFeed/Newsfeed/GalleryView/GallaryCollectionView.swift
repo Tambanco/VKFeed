@@ -10,6 +10,8 @@ import UIKit
 
 class GallaryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var photos = [FeedCellPhotoAttachementViewModel]()
+    
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -23,12 +25,18 @@ class GallaryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseId)
     }
     
+    func set(photos: [FeedCellPhotoAttachementViewModel]) {
+        self.photos = photos
+        reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId, for: indexPath) as! GalleryCollectionViewCell
+        cell.set(imageUrl: photos[indexPath.row].photoUrlString)
         return cell
     }
     

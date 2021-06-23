@@ -51,6 +51,8 @@ final class NewsfeedCodeCell: UITableViewCell {
         return button
     }()
     
+    let galleryCollectionView = GallaryCollectionView()
+    
     let postImageView: WebImageView = {
         let imageView = WebImageView()
         imageView.layer.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
@@ -227,8 +229,16 @@ final class NewsfeedCodeCell: UITableViewCell {
         if let photoAttachement = viewModel.photoAttachements.first, viewModel.photoAttachements.count == 1 {
             postImageView.set(imageURL: photoAttachement.photoUrlString)
             postImageView.isHidden = false
+            galleryCollectionView.isHidden = true
+            postImageView.frame = viewModel.sizes.attachementFrame
+        } else if viewModel.photoAttachements.count > 1 {
+            galleryCollectionView.frame = viewModel.sizes.attachementFrame
+            postImageView.isHidden = true
+            galleryCollectionView.isHidden = false
+            galleryCollectionView.set(photos: viewModel.photoAttachements)
         } else {
             postImageView.isHidden = true
+            galleryCollectionView.isHidden = true
         }
     }
     
@@ -328,6 +338,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.addSubview(postLabel)
         cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
+        cardView.addSubview(galleryCollectionView)
         cardView.addSubview(bottomView)
         
         // topView constraints
