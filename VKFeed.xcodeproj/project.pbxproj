@@ -109,9 +109,9 @@
 		498651E42683770700F87203 /* GalleryView */ = {
 			isa = PBXGroup;
 			children = (
+				498651E9268384BD00F87203 /* RowLayout.swift */,
 				498651E52683772200F87203 /* GallaryCollectionView.swift */,
 				498651E72683785800F87203 /* GalleryCollectionViewCell.swift */,
-				498651E9268384BD00F87203 /* RowLayout.swift */,
 			);
 			path = GalleryView;
 			sourceTree = "<group>";
