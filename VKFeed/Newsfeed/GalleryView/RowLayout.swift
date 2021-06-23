@@ -16,7 +16,7 @@ class RowLayout: UICollectionViewLayout {
     
     weak var delegate: RowLayoutDelegate!
     
-    fileprivate var numberOfRows = 2
+    static var numberOfRows = 2
     fileprivate var cellPadding: CGFloat = 8
     
     fileprivate var cache = [UICollectionViewLayoutAttributes]()
@@ -46,16 +46,18 @@ class RowLayout: UICollectionViewLayout {
         
         let superViewWidth = collectionView.frame.width
         
-        guard let rowHeight = RowLayout.rowHeightCounter(superViewWidth: superViewWidth, photosArray: photos) else { return }
+        guard var rowHeight = RowLayout.rowHeightCounter(superViewWidth: superViewWidth, photosArray: photos) else { return }
+        
+        rowHeight = rowHeight / CGFloat(RowLayout.numberOfRows)
         
         let photosRatios = photos.map { $0.height / $0.width }
         
         var yOffSet = [CGFloat]()
-        for row in 0 ..< numberOfRows {
+        for row in 0 ..< RowLayout.numberOfRows {
             yOffSet.append(CGFloat(row) * rowHeight)
         }
         
-        var xOffset = [CGFloat](repeating: 0, count: numberOfRows)
+        var xOffset = [CGFloat](repeating: 0, count: RowLayout.numberOfRows)
         
         var row = 0
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
@@ -72,7 +74,7 @@ class RowLayout: UICollectionViewLayout {
             
             contentWidth = max(contentWidth, frame.maxX)
             xOffset[row] = xOffset[row] + width
-            row = row < (numberOfRows - 1) ? (row + 1) : 0
+            row = row < (RowLayout.numberOfRows - 1) ? (row + 1) : 0
         }
     }
     
@@ -86,6 +88,8 @@ class RowLayout: UICollectionViewLayout {
         guard let myPhotoWithMinRatio = photoWithMinRatio else { return nil }
         let difference = superViewWidth / myPhotoWithMinRatio.width
         rowHeight = myPhotoWithMinRatio.height * difference
+        
+        rowHeight = rowHeight * CGFloat(numberOfRows)
         return rowHeight
     }
     
