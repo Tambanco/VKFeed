@@ -52,11 +52,6 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var viewsLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
     
-//    override func prepareForReuse() {
-//        iconImageView.set(imageURL: nil)
-//        postImageView.set(imageURL: nil)
-//    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -69,26 +64,4 @@ class NewsfeedCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
     }
-    
-//    func set(viewModel: FeedCellViewModel) {
-//        iconImageView.set(imageURL: viewModel.iconURLString)
-//        nameLabel.text = viewModel.name
-//        dateLabel.text = viewModel.date
-//        postLabel.text = viewModel.text
-//        likesLabel.text = viewModel.likes
-//        commentsLabel.text = viewModel.comments
-//        sharesLabel.text = viewModel.shares
-//        viewsLabel.text = viewModel.views
-//
-//        postLabel.frame = viewModel.sizes.postLabelFrame
-//        postImageView.frame = viewModel.sizes.attachementFrame
-//        bottomView.frame = viewModel.sizes.bottomViewFrame
-//
-//        if let photoAttachement = viewModel.photoAttachements {
-//            postImageView.set(imageURL: photoAttachement.photoUrlString)
-//            postImageView.isHidden = false
-//        } else {
-//            postImageView.isHidden = true
-//        }
-//    }
 }
