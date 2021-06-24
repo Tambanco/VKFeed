@@ -17,11 +17,6 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
     var presenter: NewsfeedPresentationLogic?
     var service: NewsfeedService?
     
-    private var revealedPostId = [Int]()
-    private var feedResponse: FeedResponse?
-    
-    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
-    
     func makeRequest(request: Newsfeed.Model.Request.RequestType) {
         if service == nil {
             service = NewsfeedService()
@@ -29,27 +24,23 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
         
         switch request {
         case .getNewsFeed:
-            fetcher.getFeed { [weak self] (feedResponse) in
-                
-//                print("feedResponse?.nextFrom: \(feedResponse?.nextFrom)")
-                
-                self?.feedResponse = feedResponse
-                self?.presentFeed()
-                print(self?.feedResponse?.nextFrom)
-            }
+            service?.getFeed(completion: { [weak self](revealPostIds, feed) in
+                self?.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feed, revealedPostIds: revealPostIds))
+            })
         case .getUser:
-            fetcher.getUser { (userResponse) in
-                self.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentUserInfo(user: userResponse))
-            }
+            service?.getUser(completion: { [weak self] (user) in
+                self?.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentUserInfo(user: user)
+                )})
         case .revealPostIds(postId: let postId):
-        revealedPostId.append(postId)
-        presentFeed()
+            service?.revealPostIds(forPostId: postId, completion: { [weak self] (revealPostIds, feed) in
+                self?.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feed, revealedPostIds: revealPostIds))
+            })
+        case .getNextBatch:
+            print("123")
+            service?.getNextBatch(completion: { revealPostIds, feed in
+                self.presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feed, revealedPostIds: revealPostIds))
+            })
         }
-    }
-    
-    private func presentFeed() {
-        guard let feedResponse = feedResponse else { return }
-        presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentNewsfeed(feed: feedResponse, revealedPostIds: revealedPostId))
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol RowLayoutDelegate: class {
+protocol RowLayoutDelegate: AnyObject {
     func collectionView(_ collectionView: UICollectionView, photoAtIndexPath indexPath: IndexPath ) -> CGSize
 }
 
