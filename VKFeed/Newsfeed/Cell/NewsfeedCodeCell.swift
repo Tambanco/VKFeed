@@ -49,6 +49,9 @@ final class NewsfeedCodeCell: UITableViewCell {
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
         
+        let padding = textView.textContainer.lineFragmentPadding
+        textView.textContainerInset = UIEdgeInsets.init(top: 0, left: -padding, bottom: 0, right: -padding)
+        
         textView.dataDetectorTypes = UIDataDetectorTypes.all
         return textView
     }()

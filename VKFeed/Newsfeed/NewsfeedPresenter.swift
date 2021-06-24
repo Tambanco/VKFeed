@@ -58,11 +58,13 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         
         let sizes = cellLayaoutCalculator.sizes(postText: feedItem.text, photoAttachements: photoAttachement, isFullSizedPost: isFullSized)
         
+        let postText = feedItem.text?.replacingOccurrences(of: "<br>", with: "\n")
+        
         return FeedViewModel.Cell.init(postId: feedItem.postId,
                                        iconURLString: profile.photo,
                                        name: profile.name,
                                        date: dateTitle,
-                                       text: feedItem.text,
+                                       text: postText,
                                        likes: formattedCounter(feedItem.likes?.count),
                                        comments: formattedCounter(feedItem.comments?.count),
                                        shares: formattedCounter(feedItem.reposts?.count),
