@@ -14,6 +14,7 @@ enum Newsfeed {
         struct Request {
             enum RequestType {
                 case getNewsFeed
+                case getUser
                 case revealPostIds(postId: Int)
             }
         }
