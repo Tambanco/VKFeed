@@ -41,6 +41,7 @@
 		49C4A1092684724D00490A99 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4A1082684724D00490A99 /* UserResponse.swift */; };
 		49C4A10C26849B9000490A99 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4A10B26849B8F00490A99 /* FooterView.swift */; };
 		49C4A10E2684A18A00490A99 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 49C4A10D2684A18A00490A99 /* Localizable.stringsdict */; };
+		49C4A1102684A6D900490A99 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4A10F2684A6D900490A99 /* GradientView.swift */; };
 		B7050E16FDD7866C59C22345 /* Pods_VKFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC6729BFB7CED24FB11FFCD /* Pods_VKFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		49C4A1082684724D00490A99 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		49C4A10B26849B8F00490A99 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		49C4A10D2684A18A00490A99 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		49C4A10F2684A6D900490A99 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		52E5B665732C0B854881594A /* Pods-VKFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.release.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.release.xcconfig"; sourceTree = "<group>"; };
 		63E0992474B9208D1273C9CB /* Pods-VKFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.debug.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.debug.xcconfig"; sourceTree = "<group>"; };
 		8EC6729BFB7CED24FB11FFCD /* Pods_VKFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 		4994EC70267A37C40076B4B2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				49C4A10F2684A6D900490A99 /* GradientView.swift */,
 				4994EC71267A37E60076B4B2 /* WebImageView.swift */,
 				4994EC75267A8C3D0076B4B2 /* String+Height.swift */,
 				49A5A465267B2783009C34BD /* Constraints.swift */,
@@ -390,6 +393,7 @@
 				497431B32678C81400B26633 /* API.swift in Sources */,
 				4994EC76267A8C3D0076B4B2 /* String+Height.swift in Sources */,
 				4994EC6B267A0C1D0076B4B2 /* NewsfeedCell.swift in Sources */,
+				49C4A1102684A6D900490A99 /* GradientView.swift in Sources */,
 				4994EC65267A008F0076B4B2 /* NewsfeedInteractor.swift in Sources */,
 				498651EF2683D69800F87203 /* InsetableTextField.swift in Sources */,
 			);
