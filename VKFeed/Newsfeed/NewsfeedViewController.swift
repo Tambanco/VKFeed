@@ -73,7 +73,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
     }
   
     @objc private func refresh() {
-        print("gnnjdfd")
+        interactor?.makeRequest(request: Newsfeed.Model.Request.RequestType.getNewsFeed)
     }
     
   func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData) {
@@ -82,6 +82,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
     case .displayNewsFeed(feedViewModel: let feedViewModel):
         self.feedViewModel = feedViewModel
         table.reloadData()
+        refreshControl.endRefreshing()
     case .displayUser(userViewModel: let userViewModel):
         titleView.set(userViewModel: userViewModel)
     }
