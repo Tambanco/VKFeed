@@ -30,8 +30,12 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
         switch request {
         case .getNewsFeed:
             fetcher.getFeed { [weak self] (feedResponse) in
+                
+//                print("feedResponse?.nextFrom: \(feedResponse?.nextFrom)")
+                
                 self?.feedResponse = feedResponse
                 self?.presentFeed()
+                print(self?.feedResponse?.nextFrom)
             }
         case .getUser:
             fetcher.getUser { (userResponse) in
