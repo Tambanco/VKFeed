@@ -10,6 +10,9 @@ import UIKit
 
 class GradientView: UIView {
     
+    private var startColor: UIColor = .red
+    private var endColor: UIColor = .yellow
+    
     private let gradientLayer = CAGradientLayer()
     
     override init(frame: CGRect) {
@@ -28,6 +31,6 @@ class GradientView: UIView {
     
     private func setupGradient() {
         self.layer.addSublayer(gradientLayer)
-        gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
     }
 }
