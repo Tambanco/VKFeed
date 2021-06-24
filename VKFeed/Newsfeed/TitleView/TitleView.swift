@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol TitleViewViewModel {
+    var photoUrlString: String? { get }
+}
+
 class TitleView: UIView {
 
     private var myTextField = InsetableTextField()
@@ -23,12 +27,15 @@ class TitleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(myTextField)
         addSubview(myAvatarView)
         
         makeConstraints()
+    }
+    
+    func set(userViewModel: TitleViewViewModel) {
+        myAvatarView.set(imageURL: userViewModel.photoUrlString)
     }
     
     private func makeConstraints() {
@@ -40,7 +47,7 @@ class TitleView: UIView {
                             padding: UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 4))
         
         myAvatarView.heightAnchor.constraint(equalTo: myTextField.heightAnchor, multiplier: 1).isActive = true
-        myAvatarView.widthAnchor.constraint(equalTo: myTextField.widthAnchor, multiplier: 1).isActive = true
+        myAvatarView.widthAnchor.constraint(equalTo: myTextField.heightAnchor, multiplier: 1).isActive = true
         
         
         // myTextField constaints

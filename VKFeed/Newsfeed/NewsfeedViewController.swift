@@ -69,6 +69,8 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
     case .displayNewsFeed(feedViewModel: let feedViewModel):
         self.feedViewModel = feedViewModel
         table.reloadData()
+    case .displayUser(userViewModel: let userViewModel):
+        titleView.set(userViewModel: userViewModel)
     }
   }
     

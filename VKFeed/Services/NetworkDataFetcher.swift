@@ -26,8 +26,8 @@ struct NetworkDataFetcher: DataFetcher {
     
     func getUser(response: @escaping (UserResponse?) -> Void) {
         guard let userId = authService.userId else { return }
-        let params = ["user_ids": "userId", "fields": "photo100"]
-        networking.request(path: API.user, params: params) { data, error in
+        let params = ["user_ids": userId, "fields": "photo_100"]
+        networking.request(path: API.user, params: params) { (data, error) in
             if let error = error {
                 print("Error recieved requesting data: \(error.localizedDescription)")
                 response(nil)
