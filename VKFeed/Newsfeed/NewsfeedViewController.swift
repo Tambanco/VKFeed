@@ -59,8 +59,10 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
   }
     
     private func setupTable() {
-        //    table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
-            table.register(NewsfeedCodeCell.self, forCellReuseIdentifier: NewsfeedCodeCell.reuseId)
+        let topInset: CGFloat = 8
+        table.contentInset.top = topInset
+//        table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
+        table.register(NewsfeedCodeCell.self, forCellReuseIdentifier: NewsfeedCodeCell.reuseId)
         table.separatorStyle = .none
         table.backgroundColor = .clear
         table.addSubview(refreshControl)
