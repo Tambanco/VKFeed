@@ -37,6 +37,9 @@
                             <constraint firstItem="zgG-yW-Zm5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ObL-gY-hdq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enterButton" destination="zgG-yW-Zm5" id="MhN-pu-QPe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

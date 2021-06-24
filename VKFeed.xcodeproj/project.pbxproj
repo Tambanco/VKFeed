@@ -212,11 +212,11 @@
 				497431AF2678AE2F00B26633 /* AuthViewController */,
 				4994EC58267A00410076B4B2 /* Newsfeed */,
 				4994EC70267A37C40076B4B2 /* Helpers */,
+				49C4A1122684ACBD00490A99 /* Views */,
 				49A167C52678961D009656AE /* Assets.xcassets */,
 				49A167C72678961D009656AE /* LaunchScreen.storyboard */,
 				49A167CA2678961D009656AE /* Info.plist */,
 				49C4A10D2684A18A00490A99 /* Localizable.stringsdict */,
-				49C4A1122684ACBD00490A99 /* Views */,
 			);
 			path = VKFeed;
 			sourceTree = "<group>";
