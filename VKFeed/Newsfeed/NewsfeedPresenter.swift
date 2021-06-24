@@ -34,11 +34,13 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
                 cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups, revealedPostIds: revealedPostIds)
             }
             
-            let feedViewModel = FeedViewModel.init(cells: cells)
+            let feedViewModel = FeedViewModel.init(cells: cells, footerTitle: "\(cells.count) записей")
             viewController?.displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData.displayNewsFeed(feedViewModel: feedViewModel))
         case .presentUserInfo(user: let user):
             let userViewModel = UserViewModel.init(photoUrlString: user?.photo100)
             viewController?.displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData.displayUser(userViewModel: userViewModel))
+        case .presentFooterLoader:
+            viewController?.displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData.displayFooterLoader)
         }
     }
     
