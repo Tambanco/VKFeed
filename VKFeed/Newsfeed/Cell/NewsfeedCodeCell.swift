@@ -33,14 +33,6 @@ final class NewsfeedCodeCell: UITableViewCell {
         return view
     }()
     
-//    let postLabel: UILabel = {
-//        let label = UILabel()
-//        label.numberOfLines = 0
-//        label.font = Constants.postLabelFont
-//        label.textColor = #colorLiteral(red: 0.1725490196, green: 0.1764705882, blue: 0.1803921569, alpha: 1)
-//        return label
-//    }()
-    
     let postLabel: UITextView = {
         let textView = UITextView()
         textView.font = Constants.postLabelFont
