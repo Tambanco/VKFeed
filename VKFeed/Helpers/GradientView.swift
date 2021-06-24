@@ -10,8 +10,16 @@ import UIKit
 
 class GradientView: UIView {
     
-    @IBInspectable private var startColor: UIColor?
-    @IBInspectable private var endColor: UIColor?
+    @IBInspectable private var startColor: UIColor? {
+        didSet {
+            setupGradientColors()
+        }
+    }
+    @IBInspectable private var endColor: UIColor? {
+        didSet {
+            setupGradientColors()
+        }
+    }
     
     private let gradientLayer = CAGradientLayer()
     
@@ -31,6 +39,12 @@ class GradientView: UIView {
     
     private func setupGradient() {
         self.layer.addSublayer(gradientLayer)
+        setupGradientColors()
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+    }
+    
+    private func setupGradientColors() {
         if let startColor = startColor, let endColor = endColor {
             gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         }
