@@ -34,7 +34,8 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
                 cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups, revealedPostIds: revealedPostIds)
             }
             
-            let feedViewModel = FeedViewModel.init(cells: cells, footerTitle: "\(cells.count) записей")
+            let footerTitle = String.localizedStringWithFormat(NSLocalizedString("newsfeed cells count", comment: ""), cells.count)
+            let feedViewModel = FeedViewModel.init(cells: cells, footerTitle: footerTitle)
             viewController?.displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData.displayNewsFeed(feedViewModel: feedViewModel))
         case .presentUserInfo(user: let user):
             let userViewModel = UserViewModel.init(photoUrlString: user?.photo100)
