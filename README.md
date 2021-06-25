@@ -1,7 +1,7 @@
 # SwiftDataTypes
 ## The application can download posts from your VKontakte news feed.
 ## Screenshots
-![screen-1](https://github.com/Tambanco/SwiftDataTypes/raw/master/Arhive/screen1.jpg)
+![screen-1](https://github.com/Tambanco/VKFeed/raw/main/VKFeed.gif)
 <!-- ## Features
 - [X] Copy to Clipboard button
 - [X] Highlighted text in UITextView
